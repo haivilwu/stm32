@@ -406,37 +406,92 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Start</GroupName>
+          <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32f10x_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Start\startup_stm32f10x_md.s</FilePath>
-            </File>
-            <File>
-              <FileName>core_cm3.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Start\core_cm3.c</FilePath>
+              <FilePath>.\User\main.c</FilePath>
             </File>
             <File>
-              <FileName>core_cm3.h</FileName>
+              <FileName>stm32f10x_conf.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Start\core_cm3.h</FilePath>
+              <FilePath>.\User\stm32f10x_conf.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Start\stm32f10x.h</FilePath>
-            </File>
-            <File>
-              <FileName>system_stm32f10x.c</FileName>
+              <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Start\system_stm32f10x.c</FilePath>
+              <FilePath>.\User\stm32f10x_it.c</FilePath>
             </File>
             <File>
-              <FileName>system_stm32f10x.h</FileName>
+              <FileName>stm32f10x_it.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Start\system_stm32f10x.h</FilePath>
+              <FilePath>.\User\stm32f10x_it.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>Buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>Buzzer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Buzzer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>LightSensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\LightSensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>LightSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\LightSensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\OLED.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\OLED_Font.h</FilePath>
+            </File>
+            <File>
+              <FileName>CountSensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\CountSensor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -561,27 +616,37 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>User</GroupName>
+          <GroupName>Start</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>startup_stm32f10x_md.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Start\startup_stm32f10x_md.s</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\main.c</FilePath>
+              <FilePath>.\Start\core_cm3.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_conf.h</FileName>
+              <FileName>core_cm3.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\User\stm32f10x_conf.h</FilePath>
+              <FilePath>.\Start\core_cm3.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_it.c</FileName>
+              <FileName>stm32f10x.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Start\stm32f10x.h</FilePath>
+            </File>
+            <File>
+              <FileName>system_stm32f10x.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\stm32f10x_it.c</FilePath>
+              <FilePath>.\Start\system_stm32f10x.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_it.h</FileName>
+              <FileName>system_stm32f10x.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\User\stm32f10x_it.h</FilePath>
+              <FilePath>.\Start\system_stm32f10x.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -597,66 +662,6 @@
               <FileName>Delay.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\Delay.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Hardware</GroupName>
-          <Files>
-            <File>
-              <FileName>Buzzer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\Buzzer.c</FilePath>
-            </File>
-            <File>
-              <FileName>Buzzer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\Buzzer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\Key.c</FilePath>
-            </File>
-            <File>
-              <FileName>Key.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\Key.h</FilePath>
-            </File>
-            <File>
-              <FileName>LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\LED.c</FilePath>
-            </File>
-            <File>
-              <FileName>LED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\LED.h</FilePath>
-            </File>
-            <File>
-              <FileName>LightSensor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\LightSensor.c</FilePath>
-            </File>
-            <File>
-              <FileName>LightSensor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\LightSensor.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\OLED.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED_Font.h</FilePath>
             </File>
           </Files>
         </Group>
