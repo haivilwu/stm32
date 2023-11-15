@@ -1,0 +1,17 @@
+/*******************gitignore Objects file*****************/
+/*******************Objects Listing folders****************/
+Listings/
+Objects/
+
+
+/******************not gitignore file********************/
+/*******************Libary Start User folders************/
+!*.c
+!*.h
+!*.s
+
+//////////////project folder////////////
+
+*uvguix.haivi
+*uvgui.haivil
+
