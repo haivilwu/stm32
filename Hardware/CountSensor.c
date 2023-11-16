@@ -1,4 +1,5 @@
-#include "Device/Include/stm32f10x.h"   // Device header
+#include "stm32f10x.h"                  // Device header
+
 
 uint16_t Countersensor_Count;
 
