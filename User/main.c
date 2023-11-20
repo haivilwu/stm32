@@ -1,21 +1,27 @@
 #include "stm32f10x.h"                  // Device header
-#include "delay.h"
+#include "Delay.h"
 #include "OLED.h"
-#include "Timer.h"
+#include "PWM.h"
 
+uint8_t i;
 uint16_t Num;
-
 int main(void)
 {
 	OLED_Init();
-    Timer_Init();
-	OLED_ShowString(1,1,"Num:");
-	OLED_ShowString(2,1,"CNT:");
+    PWM_Init();
+
 	while(1)
 	{
-    OLED_ShowNum(1,5,Num,5);
-    OLED_ShowNum(2,5,Timer_GetCounter(),5);
-	}
-	
+    for (i = 0; i<=100; i++)
+        {
+    PWM_SetCompare1(i);
+    Delay_ms(10);
+        }
+    for (i = 0; i<=100; i++)
+        {
+    PWM_SetCompare1(100-i);
+    Delay_ms(10);
+        }
+    }	
 }
 
