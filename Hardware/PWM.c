@@ -7,9 +7,13 @@ void PWM_Init(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
     
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);//打开时钟
+    GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2,ENABLE);//复用gpio
+    GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);//解除调试端口 PA0 TO PA15
+    
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; //AF 复用推挽输出模式
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA,&GPIO_InitStructure);
     
