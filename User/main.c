@@ -1,27 +1,31 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 #include "OLED.h"
-#include "PWM.h"
+#include "Servo.h"
+#include "Key.h"
 
-uint8_t i;
 uint16_t Num;
+uint8_t Key_Num;
+uint8_t Angle;
 int main(void)
 {
     OLED_Init();
-    PWM_Init();
-
+    Servo_Init();
+    Key_Init();
+    OLED_ShowString(1,1,"Angle:");
     while(1)
     {
-        for (i = 0; i<=100; i++)
+        Key_Num = Key_GetNum();
+        if (Key_Num == 1)
         {
-            PWM_SetCompare1(i);
-            Delay_ms(10);
+            Angle +=30;
+            if(Angle>180)
+            {
+                Angle=0;
+            }
+            Servo_SetAngle(Angle);
         }
-        for (i = 0; i<=100; i++)
-        {
-            PWM_SetCompare1(100-i);
-            Delay_ms(10);
-        }
+        OLED_ShowNum(1,7,Angle,3);
     }
 }
 

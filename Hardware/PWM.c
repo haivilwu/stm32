@@ -7,18 +7,13 @@ void PWM_Init(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,ENABLE);
     
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);//打开时钟
-    GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2,ENABLE);//复用gpio
-    GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable,ENABLE);//解除调试端口 PA0 TO PA15
-    
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; //AF 复用推挽输出模式
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA,&GPIO_InitStructure);
     
-    //TIM_ETRClockMode2Config 外部时钟   1KHz PWM
-    //TIM_ETRClockMode2Config(TIM2,TIM_ExtTRGPSC_OFF,TIM_ExtTRGPolarity_NonInverted,0x0F);//最后一个滤波器参数加到最大0x0F，可滤除时钟信号抖动
+    //舵机要求50ms ：PWM频率50Hz,再计算ARR PSC CCR
     TIM_InternalClockConfig(TIM2);
     TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
     TIM_TimeBaseInitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
@@ -34,13 +29,13 @@ void PWM_Init(void)
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
     TIM_OCInitStructure.TIM_Pulse = 0;   //CCR
-    TIM_OC1Init(TIM2,&TIM_OCInitStructure);
+    TIM_OC2Init(TIM2,&TIM_OCInitStructure);
     
     //TIM_Init
     TIM_Cmd(TIM2,ENABLE);
 }
 
-void PWM_SetCompare1(uint16_t Compare)
+void PWM_SetCompare2(uint16_t Compare)
 {
-    TIM_SetCompare1(TIM2,Compare);
+    TIM_SetCompare2(TIM2,Compare);
 }
