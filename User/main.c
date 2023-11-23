@@ -1,31 +1,33 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 #include "OLED.h"
-#include "Servo.h"
 #include "Key.h"
+#include "Motor.h"
 
 uint16_t Num;
-uint8_t Key_Num;
-uint8_t Angle;
+int8_t Speed;
+int8_t KeyNum;
 int main(void)
 {
     OLED_Init();
-    Servo_Init();
+    Motor_Init();
     Key_Init();
-    OLED_ShowString(1,1,"Angle:");
+    OLED_ShowString(1,1,"Speed:");
+
+
     while(1)
     {
-        Key_Num = Key_GetNum();
-        if (Key_Num == 1)
+        KeyNum = Key_GetNum();
+        if (KeyNum == 1)//按按键加减速度
         {
-            Angle +=30;
-            if(Angle>180)
+            Speed += 20;
+            if (Speed >100)
             {
-                Angle=0;
+                Speed = -100;
             }
-            Servo_SetAngle(Angle);
         }
-        OLED_ShowNum(1,7,Angle,3);
+        Motor_SetSpeed(Speed);
+        OLED_ShowSignedNum(1,7,Speed,4);
     }
 }
 

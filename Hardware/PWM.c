@@ -9,7 +9,7 @@ void PWM_Init(void)
     
     GPIO_InitTypeDef GPIO_InitStructure;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; //AF 复用推挽输出模式
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOA,&GPIO_InitStructure);
     
@@ -29,13 +29,17 @@ void PWM_Init(void)
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
     TIM_OCInitStructure.TIM_Pulse = 0;   //CCR
-    TIM_OC2Init(TIM2,&TIM_OCInitStructure);
+    TIM_OC3Init(TIM2,&TIM_OCInitStructure);
     
     //TIM_Init
     TIM_Cmd(TIM2,ENABLE);
 }
-
 void PWM_SetCompare2(uint16_t Compare)
 {
     TIM_SetCompare2(TIM2,Compare);
+}
+
+void PWM_SetCompare3(uint16_t Compare)
+{
+    TIM_SetCompare3(TIM2,Compare);
 }
